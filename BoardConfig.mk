@@ -16,7 +16,7 @@
 
 BOARD_VENDOR := razer
 
-DEVICE_PATH := device/razer/cheryl
+DEVICE_PATH := device/razer/aura
 
 BUILD_BROKEN_DUP_RULES := true
 
@@ -26,18 +26,22 @@ TARGET_ARCH_VARIANT := armv8-a
 TARGET_CPU_ABI := arm64-v8a
 TARGET_CPU_ABI2 :=
 TARGET_CPU_VARIANT := generic
-TARGET_CPU_VARIANT_RUNTIME := cortex-a73
+TARGET_CPU_SMP := true
+TARGET_CPU_VARIANT_RUNTIME := kryo300
 
 TARGET_2ND_ARCH := arm
 TARGET_2ND_ARCH_VARIANT := armv8-a
 TARGET_2ND_CPU_ABI := armeabi-v7a
 TARGET_2ND_CPU_ABI2 := armeabi
 TARGET_2ND_CPU_VARIANT := generic
-TARGET_2ND_CPU_VARIANT_RUNTIME := cortex-a73
+TARGET_2ND_CPU_VARIANT_RUNTIME := kryo300
+
+#ENABLE_CPUSETS := true
+#ENABLE_SCHEDBOOST := true
 
 # Bootloader
-TARGET_BOOTLOADER_BOARD_NAME := cheryl
 TARGET_NO_BOOTLOADER := true
+TARGET_BOOTLOADER_BOARD_NAME := cheryl2
 
 # Kernel
 BOARD_KERNEL_BASE := 0x00000000
@@ -46,24 +50,24 @@ BOARD_KERNEL_OFFSET = 0x00008000
 BOARD_KERNEL_PAGESIZE := 4096
 BOARD_KERNEL_TAGS_OFFSET := 0x00000100
 BOARD_RAMDISK_OFFSET := 0x01000000
-TARGET_KERNEL_CLANG_COMPILE := true
-TARGET_KERNEL_CONFIG := lineageos_cheryl_defconfig
-TARGET_KERNEL_SOURCE := kernel/razer/msm8998
+#TARGET_KERNEL_CLANG_COMPILE := true
+TARGET_KERNEL_CONFIG := aura_defconfig
+TARGET_KERNEL_SOURCE := kernel/razer/sdm845
 
-BOARD_KERNEL_CMDLINE := androidboot.console=ttyMSM0 androidboot.hardware=qcom
+BOARD_KERNEL_CMDLINE := androidboot.console=ttyMSM0 androidboot.hardware=qcom androidboot.selinux=permissive
 BOARD_KERNEL_CMDLINE += user_debug=31 msm_rtb.filter=0x37 ehci-hcd.park=3
 BOARD_KERNEL_CMDLINE += service_locator.enable=1
 BOARD_KERNEL_CMDLINE += swiotlb=2048
 BOARD_KERNEL_CMDLINE += loop.max_part=7
 
 # Platform
-TARGET_BOARD_PLATFORM := msm8998
+TARGET_BOARD_PLATFORM := sdm845
 
 # ANT+
 BOARD_ANT_WIRELESS_DEVICE := "qualcomm-hidl"
 
 # Assert
-TARGET_OTA_ASSERT_DEVICE := cheryl
+TARGET_OTA_ASSERT_DEVICE := aura
 
 # APEX image
 DEXPREOPT_GENERATE_APEX_IMAGE := true
@@ -174,4 +178,4 @@ WIFI_HIDL_FEATURE_DUAL_INTERFACE := true
 WPA_SUPPLICANT_VERSION := VER_0_8_X
 
 # Inherit from proprietary files
-include vendor/razer/cheryl/BoardConfigVendor.mk
+include vendor/razer/aura/BoardConfigVendor.mk

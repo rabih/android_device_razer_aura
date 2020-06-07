@@ -14,32 +14,33 @@
 # limitations under the License.
 #
 
-# Boot animation
-TARGET_SCREEN_HEIGHT := 2560
-TARGET_SCREEN_WIDTH := 1440
-
-# Inherit 64-bit configs
-$(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
-
 # Inherit from those products. Most specific first.
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 
-# Inherit some common LineageOS stuff.
-$(call inherit-product, vendor/lineage/config/common_full_phone.mk)
+# Inherit from aura device
+$(call inherit-product, device/razer/aura/device.mk)
 
-# Inherit device configuration
-$(call inherit-product, device/razer/cheryl/device.mk)
+# Inherit Carbon GSM telephony parts
+$(call inherit-product, vendor/carbon/config/gsm.mk)
 
-# Device identifier. This must come after all inclusions
-PRODUCT_NAME := lineage_cheryl
-PRODUCT_DEVICE := cheryl
-PRODUCT_BRAND := razer
-PRODUCT_MODEL := Phone
+# Inherit Carbon product configuration
+$(call inherit-product, vendor/carbon/config/common.mk)
+
+PRODUCT_NAME := carbon_aura
+PRODUCT_DEVICE := aura
+PRODUCT_BRAND := Razer
+PRODUCT_MODEL := Phone 2
 PRODUCT_MANUFACTURER := Razer
+
+PRODUCT_BUILD_PROP_OVERRIDES += \
+    BUILD_PRODUCT=aura \
+    PRODUCT_NAME=cheryl2 \
+    TARGET_DEVICE=aura \
+    TARGET_NAME=cheryl2
 
 PRODUCT_GMS_CLIENTID_BASE := android-razer
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
-    PRIVATE_BUILD_DESC="cheryl-user 7.1.1 NMF26X-RZR-180118 3005 release-keys"
+    PRIVATE_BUILD_DESC="aura-user 9 P-SMR3-RC002-RZR-200226 3141 release-keys"
 
-BUILD_FINGERPRINT=razer/cheryl/cheryl:7.1.1/NMF26X-RZR-180118/3005:user/release-keys
+BUILD_FINGERPRINT := razer/cheryl2/aura:9/P-MR2-RC001-RZR-190914/3123:user/release-keys

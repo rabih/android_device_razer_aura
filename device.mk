@@ -447,4 +447,4 @@ PRODUCT_BOOT_JARS += \
     WfdCommon
 
 # Call the proprietary setup
-$(call inherit-product, vendor/razer/cheryl/cheryl-vendor.mk)
+$(call inherit-product, vendor/razer/aura/aura-vendor.mk)
