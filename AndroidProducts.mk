@@ -15,4 +15,4 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/carbon_aura.mk
+    $(LOCAL_DIR)/lineage_aura.mk

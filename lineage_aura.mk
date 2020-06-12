@@ -17,16 +17,19 @@
 # Inherit from those products. Most specific first.
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 
+# Inherit 64-bit configs
+$(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
+
 # Inherit from aura device
 $(call inherit-product, device/razer/aura/device.mk)
 
 # Inherit Carbon GSM telephony parts
-$(call inherit-product, vendor/carbon/config/gsm.mk)
+#$(call inherit-product, vendor/lineage/config/gsm.mk)
 
 # Inherit Carbon product configuration
-$(call inherit-product, vendor/carbon/config/common.mk)
+$(call inherit-product, vendor/lineage/config/common_full_phone.mk)
 
-PRODUCT_NAME := carbon_aura
+PRODUCT_NAME := lineage_aura
 PRODUCT_DEVICE := aura
 PRODUCT_BRAND := Razer
 PRODUCT_MODEL := Phone 2
