@@ -20,4 +20,5 @@ PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
 
 # Voice assistant
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
-    ro.opa.eligible_device=true
+    ro.opa.eligible_device=true \
+    ro.vendor.qti.va_aosp.support=1
